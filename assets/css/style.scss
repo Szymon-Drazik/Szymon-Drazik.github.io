@@ -2,13 +2,14 @@
 ---
 @import 'main';
 
-#sidebar-bottom {
+#sidebar .sidebar-bottom {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   justify-content: center !important;
   display: flex !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
 }
 
-#sidebar-bottom a {
-  margin: 0 10px;
+#sidebar .sidebar-bottom a {
+  margin: 0 0.5rem !important;
+  padding: 0 !important;
 }
