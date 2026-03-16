@@ -1,5 +1,5 @@
 ---
-title: "Eksperyment: Kto skanuje Twój kod? 48h z Honeytokenem na GitHubie"
+title: "Kto skanuje Twój kod? 48h z Honeytokenem na GitHubie"
 date: 2026-03-16 18:00:00 +0100
 categories: [Cybersecurity, Research]
 tags: [honeytokens, aws, github, opsec, forensics]
