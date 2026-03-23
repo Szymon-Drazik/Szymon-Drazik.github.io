@@ -13,13 +13,13 @@ W świecie cyberbezpieczeństwa często skupiamy się na zaawansowanych exploita
 
 W tym wpisie pokażę, jak z połączenia otwartych źródeł i mechanizmów protokołu Kerberos można zbudować gotową listę celów do ataku, i to bez blokowania kont w Active Directory.
 
-## Krok 1: Kopalnia wiedzy na LinkedIn
+## Kopalnia wiedzy na LinkedIn
 
 Zanim atakujący dotknie firmowej infrastruktury, zaczyna od białego wywiadu (OSINT). Najlepszym źródłem informacji o strukturze zatrudnienia jest LinkedIn. 
 
 Wyszukując profil docelowej firmy (na potrzeby tego wpisu użyjemy fikcyjnego *Inlanefreight*), atakujący przechodzi do zakładki "Osoby". Zbiera stamtąd imiona i nazwiska pracowników. Często używa się do tego automatycznych scraperów. Mamy bazę prawdziwych nazwisk i co dalej?
 
-## Krok 2: Generowanie formatów z Username-anarchy
+## Generowanie formatów z Username-anarchy
 
 Mamy już listę pracowników, na której znajdują się na przykład: *John Marston*, *Carol Johnson* i *Jennifer Stapleton*. Jak jednak wygląda ich login w domenie? Czy będzie to `john.marston`, `cjohnson`, a może `stapletonj`?
 
@@ -28,7 +28,7 @@ Zamiast zgadywać w ciemno, używamy narzędzia **username-anarchy**. Pozwala on
 ![Wynik działania username-anarchy - wygenerowana lista potencjalnych loginów](/assets/img/posts/kerbrute_username/username-anarchy.png)
 *Username-anarchy potrafi wygenerować wszystkie najpopularniejsze schematy nazewnictwa w kilka sekund.*
 
-## Krok 3: Weryfikacja bezszelestna, czyli Kerbrute w akcji
+## Weryfikacja bezszelestna, czyli Kerbrute w akcji
 
 Mamy plik z tysiącami loginów. Teraz trzeba sprawdzić, które z nich faktycznie istnieją w firmowym Active Directory. Próba logowania się na każdy z nich przez panel WWW czy usługę RDP zostawiłaby ogromny ślad w logach i szybko zablokowała konta (*Account Lockout Policy*).
 
@@ -50,7 +50,7 @@ Dzięki temu atakujący "czyta" z błędów serwera, które konta są aktywne, n
 ![Wynik działania Kerbrute - znalezione poprawne loginy w domenie](/assets/img/posts/kerbrute_username/Kerbrute.png)
 *Kerbrute bezbłędnie i "cicho" weryfikuje poprawne loginy bazując na specyficznych odpowiedziach Kerberosa.*
 
-## Krok 4: Jak obrońcy (Blue Team) mogą to wykryć?
+## Jak obrońcy (Blue Team) mogą to wykryć?
 
 Atak wydaje się niewidzialny, ale zostawia ślady, jeśli wiesz, gdzie szukać:
 1. **Monitorowanie logów (Event ID 4768):** Żądanie biletu TGT przez Kerbrute generuje logi na kontrolerze domeny. Złota zasada: jeśli widzisz setki zdarzeń `Event ID 4768` z jednego adresu IP w ułamku sekundy, to znaczy, że ktoś prawdopodobnie przeprowadza enumerację. Warto ustawić odpowiednie alerty w systemie SIEM.
@@ -70,5 +70,5 @@ Jeśli chcesz zgłębić temat i przetestować te mechanizmy we własnym środow
 
 ---
 
-> **⚠️ Zastrzeżenie (Disclaimer):**
+> **⚠️ Zastrzeżenie:**
 > *Niniejszy artykuł ma charakter wyłącznie edukacyjny i demonstracyjny. Zaprezentowane techniki oraz narzędzia (takie jak Kerbrute czy username-anarchy) powinny być wykorzystywane tylko i wyłącznie w ramach autoryzowanych testów penetracyjnych, legalnych działań audytowych lub w bezpiecznych, własnych środowiskach laboratoryjnych. Nieautoryzowany dostęp do systemów informatycznych, infrastruktury firmowej oraz łamanie zabezpieczeń jest przestępstwem. Autor nie ponosi odpowiedzialności za jakiekolwiek niezgodne z prawem wykorzystanie wiedzy zawartej w tym wpisie.*
