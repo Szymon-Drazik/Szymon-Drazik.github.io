@@ -50,7 +50,7 @@ Dzięki temu atakujący "czyta" z błędów serwera, które konta są aktywne, n
 ![Wynik działania Kerbrute - znalezione poprawne loginy w domenie](/assets/img/posts/kerbrute_username/Kerbrute.png)
 *Kerbrute bezbłędnie i "cicho" weryfikuje poprawne loginy bazując na specyficznych odpowiedziach Kerberosa.*
 
-## Jak obrońcy (Blue Team) mogą to wykryć?
+## Jak Blue Team może to wykryć?
 
 Atak wydaje się niewidzialny, ale zostawia ślady, jeśli wiesz, gdzie szukać:
 1. **Monitorowanie logów (Event ID 4768):** Żądanie biletu TGT przez Kerbrute generuje logi na kontrolerze domeny. Złota zasada: jeśli widzisz setki zdarzeń `Event ID 4768` z jednego adresu IP w ułamku sekundy, to znaczy, że ktoś prawdopodobnie przeprowadza enumerację. Warto ustawić odpowiednie alerty w systemie SIEM.
