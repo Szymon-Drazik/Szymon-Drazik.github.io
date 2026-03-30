@@ -27,7 +27,7 @@ Mieliśmy do czynienia z klasyczną segmentacją sieci. Bezpośrednio z zewnątr
 
 ---
 
-## 1. Rozpoznanie i początkowy dostęp (Reconnaissance & Initial Access)
+## 1. Rozpoznanie i początkowy dostęp
 
 Standardowo rozpocząłem od skanowania portów za pomocą mojego autorskiego skryptu opartego na `nmap`, aby zidentyfikować wystawione usługi na maszynie brzegowej.
 
@@ -54,7 +54,7 @@ Spróbowałem użyć zdobytych poświadczeń `jbetty` za pomocą narzędzia `Net
 
 Musiałem poszukać głębiej na już zdobytej maszynie. Przeszukując pliki w katalogu domowym użytkownika `jbetty`, natrafiłem na klasyczny błąd w pliku `.bash_history` czyli zapisane hasło w plain-text podczas logowania przez `sshpass`:
 
-```bash
+```text
 sshpass -p "dealer-screwed-gym1" ssh hwilliam@file01
 ```
 Mamy to! Nowe poświadczenia: `hwilliam:dealer-screwed-gym1`. Logowanie do maszyny `FILE01` przebiegło pomyślnie.
