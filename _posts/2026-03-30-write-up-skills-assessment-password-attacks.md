@@ -8,7 +8,7 @@ image:
   alt: Authentication attempt via NetExec.
 ---
 
-> 🇬🇧 **English speaker?** [Click here to skip straight to the English version!](#-english-version)
+> 🇬🇧 **English speaker?** [Click here to skip straight to the English version!](#english-version)
 {: .prompt-info }
 
 W dzisiejszym wpisie przejdziemy przez proces kompromitacji środowiska domenowego. Pokażę, jak zaczynając od skromnego dostępu z zewnątrz, poprzez umiejętny pivoting, łamanie sejfów haseł i zrzut pamięci LSASS, udało mi się zdobyć uprawnienia Administratora Domeny. 
