@@ -161,7 +161,10 @@ Ten łańcuch ataku doskonale ilustruje, dlaczego **Defense in Depth** jest tak 
 ---
 <br><br>
 
-## 🇬🇧 English Version {#english-version}
+>## 🇬🇧 English Version {#english-version}
+
+<details>
+<summary><b>Click here to expand the English version of this write-up!</b></summary>
 
 In today's post, we will walk through the process of compromising a domain environment. I will demonstrate how, starting from modest external access, through skillful pivoting, cracking password safes, and dumping LSASS memory, I managed to obtain Domain Administrator privileges.
 
@@ -307,3 +310,5 @@ This attack chain perfectly illustrates why **Defense in Depth** is so vital. To
 > *This article is an original **Write-up** of the **Skills Assessment - Password Attacks** task available on the [Hack The Box](https://www.hackthebox.com/) educational platform. The presented process of gaining control over the `nexura.htb` domain is for educational purposes only.*
 > 
 > *The techniques presented should only be used as part of authorized penetration tests. The author is not responsible for any illegal use of the knowledge contained in this post.*
+
+</details>
