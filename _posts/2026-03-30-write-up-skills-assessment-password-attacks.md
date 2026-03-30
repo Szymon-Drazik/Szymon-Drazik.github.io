@@ -161,7 +161,7 @@ Ten łańcuch ataku doskonale ilustruje, dlaczego **Defense in Depth** jest tak 
 ---
 <br><br>
 
->## 🇬🇧 English Version {#english-version}
+>## English Version {#english-version}
 
 <details markdown="1">
 <summary><b>Click here to expand the English version of this write-up!</b></summary>
