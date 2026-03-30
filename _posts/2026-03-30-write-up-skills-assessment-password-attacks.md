@@ -31,15 +31,15 @@ Mieliśmy do czynienia z klasyczną segmentacją sieci. Bezpośrednio z zewnątr
 
 Standardowo rozpocząłem od skanowania portów za pomocą mojego autorskiego skryptu opartego na `nmap`, aby zidentyfikować wystawione usługi na maszynie brzegowej.
 
-![Wynik skanowania nmap](nmap.png)
+![Wynik skanowania nmap](/assets/img/posts/SkillsAssessmentPasswordAttacks/nmap.png)
 
 Mając pewne punkty zaczepienia, zająłem się enumeracją użytkowników. Posiadając imię i nazwisko potencjalnego pracownika **Betty Jayde**. Wykorzystałem do tego narzędzie `username-anarchy`, aby wygenerować listę potencjalnych loginów korporacyjnych. 
 
-![Generowanie loginów przez username-anarchy](username-anarchy.png)
+![Generowanie loginów przez username-anarchy](/assets/img/posts/SkillsAssessmentPasswordAttacks/username-anarchy.png)
 
 Mając listę loginów, użyłem `Hydry` do ataku słownikowego na wystawioną usługę SSH, wykorzystując znane nam hasło.
 
-![Atak Hydra na SSH](hydra.png)
+![Atak Hydra na SSH](/assets/img/posts/SkillsAssessmentPasswordAttacks/hydra.png)
 
 Sukces! Udało się wyłuskać poprawne poświadczenia:
 `jbetty:Texas123!@#`
@@ -50,7 +50,7 @@ Po zalogowaniu się przez SSH na konto `jbetty` do maszyny DMZ01, moim kolejnym 
 
 Spróbowałem użyć zdobytych poświadczeń `jbetty` za pomocą narzędzia `NetExec` poprzez Proxychains przeciwko kontrolerowi domeny, a także wykonałem Password Spraying z pełną listą użytkowników, ale bez rezultatu.
 
-![Próba uwierzytelnienia przez NetExec](netexec.png)
+![Próba uwierzytelnienia przez NetExec](/assets/img/posts/SkillsAssessmentPasswordAttacks/netexec.png)
 
 Musiałem poszukać głębiej na już zdobytej maszynie. Przeszukując pliki w katalogu domowym użytkownika `jbetty`, natrafiłem na klasyczny błąd w pliku `.bash_history` czyli zapisane hasło w plain-text podczas logowania przez `sshpass`:
 
@@ -59,13 +59,13 @@ sshpass -p "dealer-screwed-gym1" ssh hwilliam@file01
 ```
 Mamy to! Nowe poświadczenia: `hwilliam:dealer-screwed-gym1`. Logowanie do maszyny `FILE01` przebiegło pomyślnie.
 
-![Logowanie na konto hwilliam](login.png)
+![Logowanie na konto hwilliam](/assets/img/posts/SkillsAssessmentPasswordAttacks/login.png)
 
 ## 3. Lateral Movement i łamanie Password Safe
 
 Na maszynie `FILE01` zacząłem sprawdzać dostępne zasoby sieciowe i udziały (SMB shares).
 
-![Przeszukiwanie zasobów na FILE01](file01search.png)
+![Przeszukiwanie zasobów na FILE01](/assets/img/posts/SkillsAssessmentPasswordAttacks/file01search.png)
 
 W jednym z archiwów znalazłem stary plik bazy haseł: `Employee-Passwords_OLD.psafe3`. 
 
@@ -84,7 +84,7 @@ Otworzyłem bazę za pomocą narzędzia **Password Gorilla**:
 password-gorilla Employee-Passwords_OLD.psafe3
 ```
 
-![Zawartość pliku psafe3](psafe3.png)
+![Zawartość pliku psafe3](/assets/img/posts/SkillsAssessmentPasswordAttacks/psafe3.png)
 
 Wewnątrz znalazłem stare poświadczenia pracowników:
 
@@ -97,7 +97,7 @@ hwilliam:warned-wobble-occur8
 
 Ponieważ były to "stare" hasła, założyłem, że użytkownicy mogli po prostu inkrementować cyfry na końcu to bardzo częsta, zgubna praktyka w korporacjach. Przetestowałem warianty z końcówkami od `1` do `9`. Okazało się, że użytkownik `bdavid` w ogóle nie zmienił hasła, a co więcej posiadał on uprawnienia lokalnego administratora na maszynie `JMP01`!
 
-## 4. Eskalacja uprawnień i przejęcie Domeny (Domain Admin)
+## 4. Eskalacja uprawnień i przejęcie Domeny
 
 Mając uprawnienia administratora na maszynie `JMP01`, wykonałem zrzut pamięci procesu **LSASS** (Local Security Authority Subsystem Service). Analiza zrzutu pozwoliła mi na wyciągnięcie kolejnych poświadczeń bezpośrednio z pamięci RAM:
 
@@ -123,7 +123,7 @@ Zdobyty Hash NT Administratora: `36e09e1e6ade94d63fbcab5e5b8d6d23`
 
 Dla pełnej satysfakcji chciałem zalogować się graficznie przez RDP, wykorzystując zjawisko **Pass-the-Hash**. Początkowo napotkałem jednak błąd:
 
-![Błąd RDP](errorrdp.png)
+![Błąd RDP](/assets/img/posts/SkillsAssessmentPasswordAttacks/errorrdp.png)
 
 Aby to obejść, zalogowałem się najpierw na kontroler domeny za pomocą narzędzia **Evil-WinRM**, które natywnie obsługuje logowanie samym hashem:
 
