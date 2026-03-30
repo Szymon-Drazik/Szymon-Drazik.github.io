@@ -156,9 +156,7 @@ Ten łańcuch ataku doskonale ilustruje, dlaczego **Defense in Depth** jest tak 
 > 
 > *Przedstawione techniki powinny być wykorzystywane tylko w ramach autoryzowanych testów penetracyjnych. Autor nie ponosi odpowiedzialności za jakiekolwiek niezgodne z prawem wykorzystanie wiedzy zawartej w tym wpisie.*
 
-<br>
 ---
-<br>
 
 >## English Version {#english-version}
 <details markdown="1">
