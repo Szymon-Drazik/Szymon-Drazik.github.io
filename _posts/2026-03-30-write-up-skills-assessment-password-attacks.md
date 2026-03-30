@@ -10,7 +10,7 @@ image:
 
 W dzisiejszym wpisie przejdziemy przez proces pełnej infiltracji środowiska domenowego. Pokażę, jak zaczynając od skromnego dostępu z zewnątrz, poprzez umiejętny pivoting, łamanie sejfów haseł i zrzut pamięci LSASS, udało mi się zdobyć uprawnienia Administratora Domeny.
 
-> 🇬🇧 **English speaker?** [Click here to skip straight to the English version!](#english-version)
+>**English speaker?** [Click here to skip straight to the English version!](#english-version)
 {: .prompt-info }
 
 Opisany atak to klasyczny przykład tzw. **"The Credential Theft Shuffle"** – systematycznego podejścia polegającego na przejmowaniu środowisk Active Directory poprzez wyciąganie poświadczeń z pamięci i wykorzystywanie ich do Lateral Movement.
@@ -156,13 +156,11 @@ Ten łańcuch ataku doskonale ilustruje, dlaczego **Defense in Depth** jest tak 
 > 
 > *Przedstawione techniki powinny być wykorzystywane tylko w ramach autoryzowanych testów penetracyjnych. Autor nie ponosi odpowiedzialności za jakiekolwiek niezgodne z prawem wykorzystanie wiedzy zawartej w tym wpisie.*
 
-<br><br>
+<br>
 ---
----
-<br><br>
+<br>
 
 >## English Version {#english-version}
-
 <details markdown="1">
 <summary><b>Click here to expand the English version of this write-up!</b></summary>
 
