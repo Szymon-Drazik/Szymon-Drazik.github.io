@@ -5,7 +5,7 @@ categories: [Cybersecurity, Writeups]
 tags: [web-proxies, burp-suite, owasp-zap, fuzzing, metasploit, hack-the-box]
 image:
   path: /assets/img/posts/SkillsAssessmentUsingWebProxies/fuzzing-results.png
-  alt: Przechwytywanie ruchu sieciowego za pomocą Burp Suite i OWASP ZAP.
+  alt: Fuzzing hasha w OWASP ZAP.
 ---
 
 # Zestaw narzędzi pentestera w praktyce: Fuzzing, Proxy i omijanie blokad
