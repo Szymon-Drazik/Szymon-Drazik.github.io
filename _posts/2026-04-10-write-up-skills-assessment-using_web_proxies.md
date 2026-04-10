@@ -1,10 +1,10 @@
 ---
 title: "Write-Up: Skills Assessment - Using Web Proxies"
-date: 2026-04-10 20:00:00 +0200
+date: 2026-04-10 18:00:00 +0200
 categories: [Cybersecurity, Writeups]
 tags: [web-proxies, burp-suite, owasp-zap, fuzzing, metasploit, hack-the-box]
 image:
-  path: /assets/img/posts/WebProxies/proxy-cover.png
+  path: /assets/img/posts/SkillsAssessmentUsingWebProxies/fuzzing-results.png
   alt: Przechwytywanie ruchu sieciowego za pomocą Burp Suite i OWASP ZAP.
 ---
 
