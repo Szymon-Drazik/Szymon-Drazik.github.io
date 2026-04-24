@@ -1,10 +1,23 @@
-<script>
-  (function() {
-    const userLang = navigator.language || navigator.userLanguage;
-    const isRoot = window.location.pathname === "/" || window.location.pathname === "/index.html";
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {%- seo -%}
+  
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
 
-    if (userLang.startsWith('en') && isRoot) {
-      window.location.href = "/en/";
-    }
-  })();
-</script>
+  <link rel="alternate" hreflang="pl" href="{{ site.url }}{{ page.url }}" />
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url }}" />
+
+  <script>
+    (function() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const isRoot = window.location.pathname === "/" || window.location.pathname === "/index.html";
+      if (userLang.startsWith('en') && isRoot) {
+        window.location.href = "/en/";
+      }
+    })();
+  </script>
+</head>
