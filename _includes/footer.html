@@ -14,11 +14,8 @@
     var userLang = navigator.language || navigator.userLanguage;
     var path = window.location.pathname;
     
-    // Sprawdzamy, czy użytkownik jest dokładnie na stronie głównej
-    // (Dostosowane do Twojej domeny na GitHub Pages)
     var isRoot = path === "/" || path === "/index.html" || path === "";
 
-    // Jeśli język przeglądarki nie jest polski ORAZ jesteśmy na głównej
     if (!userLang.startsWith('pl') && isRoot) {
       window.location.replace("/en/");
     }
