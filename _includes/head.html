@@ -1,0 +1,10 @@
+<script>
+  (function() {
+    const userLang = navigator.language || navigator.userLanguage;
+    const isRoot = window.location.pathname === "/" || window.location.pathname === "/index.html";
+
+    if (userLang.startsWith('en') && isRoot) {
+      window.location.href = "/en/";
+    }
+  })();
+</script>
