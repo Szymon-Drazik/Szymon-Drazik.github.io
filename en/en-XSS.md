@@ -1,10 +1,12 @@
 ---
+layout: post
 title: "XSS - Cross-Site Scripting"
 date: 2026-04-24 12:00:00 +0200
 categories: [Cybersecurity, Writeups, XSS]
 tags: [xss, cross-site-scripting, reflected-xss, stored-xss, web-security, burp-suite, owasp-zap, payloads, hack-the-box]
 lang: en
 ref: xss-skills-assessment
+permalink: /en/xss/
 image:
   path: /assets/img/posts/XSS/reflected_after.png
   alt: A Reflected XSS phishing attack showing a fake login form on a trusted domain and captured data in the attacker's terminal.
